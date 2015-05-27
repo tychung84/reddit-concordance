@@ -19,7 +19,7 @@ def processBody(text):
    closeBrackets = '}])'
    punctuation = '.!?'   
 
-   myBody = text.replace('\n','')
+   myBody = text.replace('\n','<br>')
    newString = myBody[0]
    checkCounter = 0
    counter = 1
@@ -45,5 +45,5 @@ def index(request):
     thisBody = processBody(selectItem.body)
     return HttpResponse(thisBody + '<br><br>' + selectItem.writer + '<br>' + \
 			selectItem.subreddit + '<br>' + selectItem.write_time.isoformat() + \
-			'<br><a href>' + selectItem.link + '</a>')
+			'<br><a href="' + selectItem.link +'">' + selectItem.link + '</a>')
 # Create your views here.
