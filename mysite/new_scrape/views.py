@@ -25,8 +25,7 @@ def processBody(text):
    counter = 1
    bracketCounter = 0
             
-   if (('http://' not in myBody) | ('(http:' in myBody)) & (myBody.strip().count(' ') >= 2):
-      while (checkCounter < 2) & (counter < len(myBody)):
+   while (checkCounter < 2) & (counter < len(myBody)):
          newString += myBody[counter]
          if myBody[counter] in openBrackets:
             bracketCounter += 1
@@ -35,6 +34,7 @@ def processBody(text):
          elif (myBody[counter] in punctuation) & (bracketCounter == 0) & (myBody[counter-1] not in punctuation):
             checkCounter += 1
          counter += 1
+   
    return newString
 
 def index(request):
